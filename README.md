@@ -188,14 +188,16 @@ monitor_filters = esp32_exception_decoder, log2file
 
 Third-party material keeps its own terms:
 
-- KiCad handout by **evils** — [gitlab.com/evils/kicad-workshop](https://gitlab.com/evils/kicad-workshop),
-  CERN-OHL-W v2
-- UT-Nutiplaat R2 hardware design — University of Tartu, Institute of Technology
+- [UT-Nutiplaat R2 hardware design pdf](docs/UT-Nutiplaat_R2.Schematics.pdf) — University of Tartu, Institute of Technology
 
 ## Credits
 
-Board designed at the University of Tartu Institute of Technology.
-Firmware and workshop material for the 2026 summer school,
-[Robot Study Companion](https://rsc.ee).
+The UT-Nutiplaat R2 was designed at the University of Tartu Institute of Technology
+for the **Smart Solutions** course, led by
+[prof Heiki Kasemägi](https://www.etis.ee/CV/Heiki_Kasem%C3%A4gi/eng/), who kindly
+loaned the boards for this summer school. With thanks.
+
+Firmware and workshop material by [Robot Study Companion](https://rsc.ee) for the
+2026 summer school, *Designing Social Robots for Human Interaction*.
 
 GPIO Viewer by [thelastoutpostworkshop](https://github.com/thelastoutpostworkshop/gpio_viewer).
