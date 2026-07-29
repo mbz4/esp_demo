@@ -2,8 +2,7 @@
 
 # UT-Nutiplaat R2 — workshop firmware
 
-Probe and demo firmware for the UT-Nutiplaat R2 development board, built for the
-*Designing Social Robots for Human Interaction* summer school at the University of Tartu.
+Probe and demo firmware for the UT-Nutiplaat R2 development board, developed by students for students at the University of Tartu course Smart Solutions, led by prof [Heiki Kasemägi (etis CV link)](https://www.etis.ee/CV/Heiki_Kasem%C3%A4gi/eng/).
 
 Exercises every on-board peripheral over a serial menu: the dual 7-segment display,
 four addressable LEDs, rotary encoder, potentiometer, I²C bus, ultrasonic sensor and PIR.
