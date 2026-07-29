@@ -49,3 +49,51 @@ GPIOViewer >> Web Application URL is: http://192.168.8.111:8080
 
 press 's' to rescan
 GPIOViewer >> Connected, sampling interval is 50ms
+
+--- pull census ---
+  GPIO4   floating
+  GPIO5   floating
+  GPIO13  floating
+  GPIO14  floating
+  GPIO16  floating
+  GPIO17  floating
+  GPIO18  floating
+  GPIO19  floating
+  GPIO21  floating
+  GPIO22  floating
+  GPIO23  floating
+  GPIO25  floating
+  GPIO26  floating
+  GPIO27  floating
+  GPIO32  floating
+  GPIO33  ext pull-down / driven low
+0 pin(s) carry an external pull-up
+
+--- I2C: Arduino defaults 21/22 ---
+  0 device(s)
+
+--- I2C sweep skipped: fewer than 2 pulled-up pins ---
+
+--- pull census ---
+  GPIO4   floating
+  GPIO5   floating
+  GPIO13  floating
+  GPIO14  floating
+  GPIO16  floating
+  GPIO17  floating
+  GPIO18  floating
+  GPIO19  floating
+  GPIO21  floating
+  GPIO22  floating
+  GPIO23  floating
+  GPIO25  floating
+  GPIO26  floating
+  GPIO27  floating
+  GPIO32  floating
+  GPIO33  ext pull-down / driven low
+0 pin(s) carry an external pull-up
+
+--- I2C: Arduino defaults 21/22 ---
+  0 device(s)
+
+--- I2C sweep skipped: fewer than 2 pulled-up pins ---

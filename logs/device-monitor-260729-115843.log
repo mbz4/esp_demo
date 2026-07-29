@@ -1,0 +1,403 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+
+
+===== PIN PROBE =====
+chip rev 301, flash 16 MB
+connecting to RSC-2G ....
+viewer: http://192.168.8.111:8080
+GPIOViewer >> Release 1.7.1
+GPIOViewer >> ESP32 Core Version 3.3.11
+GPIOViewer >> Chip Model:ESP32-D0WD-V3, revision:301
+GPIOViewer >> No PSRAM
+GPIOViewer >> Web Application mDNS URL is: http://gpioviewer.local:8080
+GPIOViewer >> Web Application URL is: http://192.168.8.111:8080
+
+--- census: driveable ---
+  GPIO2   ext pull-down / driven low
+  GPIO4   floating
+  GPIO5   floating
+  GPIO13  floating
+  GPIO14  floating
+  GPIO15  floating
+  GPIO16  floating
+  GPIO17  floating
+  GPIO18  floating
+  GPIO19  floating
+  GPIO21  floating
+  GPIO22  floating
+  GPIO23  floating
+  GPIO25  floating
+  GPIO26  floating
+  GPIO27  floating
+  GPIO32  floating
+  GPIO33  ext pull-down / driven low
+--- census: input-only ---
+  GPIO34  digital=0  142 mV
+  GPIO35  digital=0  142 mV
+  GPIO36  digital=0  142 mV
+  GPIO39  digital=0  142 mV
+
+[c] census  [a] ADC  [n] neopixel sweep  [k] knobs  [w] walk  [b] buttons  [i] I2C  [0-9] hold WS2812 on Nth driveable pin
+GPIOViewer >> Connected, sampling interval is 50ms
+
+--- NEOPIXEL SWEEP: watch the 4 LEDs, ~2.5 s per pin ---
+  trying GPIO2  ... done
+  trying GPIO4  ... done
+  trying GPIO5  ... done
+  trying GPIO13 ... done
+  trying GPIO14 ... done
+  trying GPIO15 ... done
+  trying GPIO16 ... done
+  trying GPIO17 ... done
+  trying GPIO18 ... done
+  trying GPIO19 ... done
+  trying GPIO21 ... done
+  trying GPIO22 ... done
+  trying GPIO23 ... done
+  trying GPIO25 ... done
+  trying GPIO26 ... 
+assert failed: xEventGroupClearBits event_groups.c:496 (xEventGroup)
+
+
+Backtrace: 0x4008c5d0:0x3ffb1e10 0x4008c595:0x3ffb1e30 0x40092b91:0x3ffb1e50 0x4008d2d9:0x3ffb1f90 0x400e88b0:0x3ffb1fb0 0x400e8a8a:0x3ffb1ff0 0x400e8669:0x3ffb2010 0x400e86a1:0x3ffb20a0 0x400e86f5:0x3ffb20c0 0x400e2f66:0x3ffb20f0 0x400e30c9:0x3ffb2110 0x400eb508:0x3ffb2130 0x4008d441:0x3ffb2150
+  #0  0x4008c5d0 in panic_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp_system/panic.c:477
+  #1  0x4008c595 in esp_system_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp_system/port/esp_system_chip.c:87
+  #2  0x40092b91 in __assert_func at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/newlib/src/assert.c:81
+  #3  0x4008d2d9 in xEventGroupClearBits at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/FreeRTOS-Kernel/event_groups.c:497
+     (inlined by) xEventGroupClearBits at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/FreeRTOS-Kernel/event_groups.c:488
+  #4  0x400e88b0 in _rmtWrite at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rmt.c:325
+  #5  0x400e8a8a in rmtWrite at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rmt.c:432
+  #6  0x400e8669 in rgbLedWriteOrdered at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rgb-led.c:94
+  #7  0x400e86a1 in rgbLedWrite at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rgb-led.c:26
+  #8  0x400e86f5 in neopixelWrite at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rgb-led.c:22
+  #9  0x400e2f66 in neopixelSweep() at src/main.cpp:73
+  #10 0x400e30c9 in loop() at src/main.cpp:216
+  #11 0x400eb508 in loopTask(void*) at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:82
+
+
+
+
+
+ELF file SHA256: 619f57ab8
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+
+
+===== PIN PROBE =====
+chip rev 301, flash 16 MB
+connecting to RSC-2G [  1705][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 202 - AUTH_FAIL
+[  1734][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 202 - AUTH_FAIL
+..................................................
+WiFi failed (status 4) - serial only
+
+--- census: driveable ---
+  GPIO2   ext pull-down / driven low
+  GPIO4   floating
+  GPIO5   floating
+  GPIO13  floating
+  GPIO14  floating
+  GPIO15  floating
+  GPIO16  floating
+  GPIO17  floating
+  GPIO18  floating
+  GPIO19  floating
+  GPIO21  floating
+  GPIO22  floating
+  GPIO23  floating
+  GPIO25  floating
+  GPIO26  floating
+  GPIO27  floating
+  GPIO32  floating
+  GPIO33  ext pull-down / driven low
+--- census: input-only ---
+  GPIO34  digital=0  142 mV
+  GPIO35  digital=0  142 mV
+  GPIO36  digital=0  142 mV
+  GPIO39  digital=0  142 mV
+
+[c] census  [a] ADC  [n] neopixel sweep  [k] knobs  [w] walk  [b] buttons  [i] I2C  [0-9] hold WS2812 on Nth driveable pin
+
+--- holding GPIO2 as WS2812 data, 20 s rainbow ---
+[ 46340][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46375][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46405][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46434][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46463][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46492][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46521][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46550][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46579][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46608][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46637][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46666][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46695][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46724][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46753][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46782][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46811][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46840][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46869][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46898][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46927][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46956][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 46985][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47014][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47043][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47072][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47101][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47130][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47159][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47188][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47217][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47246][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47275][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47304][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47333][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47362][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47391][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47420][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47449][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47478][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47507][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47536][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47565][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47594][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47623][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47652][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47681][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47710][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47739][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47768][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47797][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47826][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47855][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47884][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47913][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47942][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 47971][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48000][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48029][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48058][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48087][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48116][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48145][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48174][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48203][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48232][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48261][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48290][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48319][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48348][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48377][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48406][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48435][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48464][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48493][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48522][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48551][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48580][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48609][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48638][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48667][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48696][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48725][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48754][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48783][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48812][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48841][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48870][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48899][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48928][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48957][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 48986][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49015][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49044][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49073][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49102][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49131][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49160][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49189][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49218][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49247][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49276][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49305][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49334][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49363][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49392][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49421][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49450][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49479][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49508][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49537][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49566][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49595][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49624][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49653][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49682][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49711][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49740][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49769][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49798][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49827][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49856][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49885][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49914][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49943][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 49972][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50001][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50030][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50059][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50088][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50117][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50146][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50175][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50204][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50233][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50262][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50291][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50320][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50349][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50378][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50407][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50436][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50465][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50494][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50523][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50552][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50581][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50610][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50639][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50668][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50697][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50726][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50755][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50784][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50813][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50842][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50871][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50900][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50929][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50958][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 50987][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51016][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51045][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51074][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51103][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51132][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51161][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51190][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51219][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51248][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51277][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51306][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51335][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51364][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51393][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51422][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51451][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51480][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51509][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51538][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51567][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51596][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51625][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51654][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51683][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51712][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51741][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51770][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51799][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51828][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51857][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51886][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51915][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51944][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 51973][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52002][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52031][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52060][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52089][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52118][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52147][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52176][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52205][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52234][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52263][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52292][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52321][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52350][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52379][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52408][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52437][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52466][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52495][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52524][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52553][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52582][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52611][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52640][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52669][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52698][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52727][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52756][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52785][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52814][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52843][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52872][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52901][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52930][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52959][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 52988][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53017][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53046][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53075][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53104][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53133][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53162][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53191][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53220][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53249][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53278][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53307][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53336][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53365][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53394][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53423][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53452][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53481][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53510][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53539][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53568][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53597][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53626][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53655][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53684][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53713][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53742][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53771][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53800][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53829][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53858][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53887][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53916][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53945][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().
+[ 53974][W][esp32-hal-rgb-led.c:21] neopixelWrite(): neopixelWrite() is deprecated. Use rgbLedWrite().

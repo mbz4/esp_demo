@@ -1,0 +1,218 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+
+
+===== UT-Nutiplaat R2 =====
+connecting to RSC-2G [  1401][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 202 - AUTH_FAIL
+[  1430][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 202 - AUTH_FAIL
+........................................
+no WiFi - serial only
+
+--- SELF TEST ---
+  7-seg: all segments
+  7-seg: 00-99
+  WS2812: R G B W chase
+  done
+
+--- I2C @ 25/26 ---
+[ 18775][I][esp32-hal-i2c-ng.c:112] i2cInit(): Initializing I2C Master: num=0 sda=25 scl=26 freq=100000
+  0x68   <- DS3231M RTC
+  1 device(s)
+
+[t] self test  [k] knobs  [i] I2C scan  [u] ultrasonic  [r] PIR  [?] menu
+
+--- SELF TEST ---
+  7-seg: all segments
+  7-seg: 00-99
+  WS2812: R G B W chase
+  done
+
+[t] self test  [k] knobs  [i] I2C scan  [u] ultrasonic  [r] PIR  [?] menu
+
+--- SELF TEST ---
+  7-seg: all segments
+  7-seg: 00-99
+  WS2812: R G B W chase
+  done
+
+[t] self test  [k] knobs  [i] I2C scan  [u] ultrasonic  [r] PIR  [?] menu
+
+--- SELF TEST ---
+  7-seg: all segments
+  7-seg: 00-99
+  WS2812: R G B W chase
+  done
+
+[t] self test  [k] knobs  [i] I2C scan  [u] ultrasonic  [r] PIR  [?] menu
+
+--- I2C @ 25/26 ---
+[151217][I][esp32-hal-i2c-ng.c:112] i2cInit(): Initializing I2C Master: num=0 sda=25 scl=26 freq=100000
+  0x68   <- DS3231M RTC
+  1 device(s)
+
+[t] self test  [k] knobs  [i] I2C scan  [u] ultrasonic  [r] PIR  [?] menu
+
+--- KNOBS 30 s: pot -> display+pixels, encoder -> count ---
+  pot =  0   (enc raw 0)
+  pot =  3   (enc raw 0)
+  pot = 15   (enc raw 0)
+  pot = 32   (enc raw 0)
+  pot = 38   (enc raw 0)
+  pot = 46   (enc raw 0)
+  pot = 58   (enc raw 0)
+  pot = 77   (enc raw 0)
+  pot = 84   (enc raw 0)
+  pot = 89   (enc raw 0)
+  pot = 96   (enc raw 0)
+  pot = 99   (enc raw 0)
+  button -> encoder
+  enc =  1   (enc raw 2)
+  enc =  3   (enc raw 6)
+  enc =  4   (enc raw 8)
+  enc =  5   (enc raw 10)
+  enc =  6   (enc raw 12)
+  enc =  7   (enc raw 14)
+  enc =  8   (enc raw 16)
+  enc =  7   (enc raw 14)
+  enc =  6   (enc raw 12)
+  enc =  5   (enc raw 10)
+  enc =  4   (enc raw 8)
+  enc =  3   (enc raw 6)
+  enc =  4   (enc raw 8)
+  enc =  6   (enc raw 12)
+  enc =  7   (enc raw 14)
+  enc =  9   (enc raw 18)
+  enc = 10   (enc raw 20)
+  enc =  9   (enc raw 18)
+  enc =  7   (enc raw 14)
+  enc =  6   (enc raw 12)
+  enc =  4   (enc raw 9)
+  button -> pot
+  pot = 99   (enc raw 8)
+  pot = 84   (enc raw 8)
+  pot = 60   (enc raw 8)
+  pot = 38   (enc raw 8)
+  pot = 29   (enc raw 8)
+  pot = 19   (enc raw 8)
+  pot =  0   (enc raw 8)
+  pot = 15   (enc raw 8)
+  pot = 45   (enc raw 8)
+  pot = 58   (enc raw 8)
+  pot = 72   (enc raw 8)
+  pot = 82   (enc raw 8)
+  pot = 90   (enc raw 8)
+  pot = 99   (enc raw 8)
+  pot = 81   (enc raw 8)
+  pot = 44   (enc raw 8)
+  pot =  0   (enc raw 8)
+  pot = 41   (enc raw 8)
+  pot = 79   (enc raw 8)
+  pot = 89   (enc raw 8)
+  pot = 99   (enc raw 8)
+  button -> encoder
+  enc = 11   (enc raw 22)
+  enc = 10   (enc raw 20)
+  enc = 12   (enc raw 24)
+  enc = 15   (enc raw 30)
+  enc = 18   (enc raw 36)
+  enc = 20   (enc raw 40)
+  enc = 19   (enc raw 38)
+  enc = 18   (enc raw 36)
+  enc = 16   (enc raw 32)
+  enc = 13   (enc raw 26)
+  enc = 12   (enc raw 24)
+  enc = 11   (enc raw 22)
+  enc = 10   (enc raw 20)
+  enc = 11   (enc raw 22)
+  enc = 12   (enc raw 24)
+  enc = 13   (enc raw 26)
+  enc = 14   (enc raw 28)
+  enc = 16   (enc raw 32)
+  enc = 17   (enc raw 34)
+  enc = 18   (enc raw 36)
+  enc = 19   (enc raw 38)
+  enc = 20   (enc raw 40)
+  enc = 21   (enc raw 42)
+  enc = 22   (enc raw 44)
+  enc = 23   (enc raw 46)
+  enc = 27   (enc raw 54)
+
+[t] self test  [k] knobs  [i] I2C scan  [u] ultrasonic  [r] PIR  [?] menu
+
+--- KNOBS 30 s: pot -> display+pixels, encoder -> count ---
+  pot = 99   (enc raw 0)
+  button -> encoder
+  enc =  2   (enc raw 4)
+  enc =  3   (enc raw 6)
+  enc =  4   (enc raw 8)
+  enc =  5   (enc raw 10)
+  enc =  6   (enc raw 12)
+  enc =  5   (enc raw 10)
+  enc =  4   (enc raw 8)
+  enc =  3   (enc raw 6)
+  enc =  2   (enc raw 4)
+  enc =  1   (enc raw 2)
+  enc = 96   (enc raw -8)
+  enc = 95   (enc raw -10)
+  enc = 93   (enc raw -14)
+  enc = 92   (enc raw -16)
+  enc = 90   (enc raw -20)
+  enc = 89   (enc raw -22)
+  enc = 88   (enc raw -24)
+  enc = 90   (enc raw -20)
+  enc = 92   (enc raw -16)
+  enc = 93   (enc raw -15)
+  enc = 97   (enc raw -6)
+  enc = 98   (enc raw -4)
+  enc = 99   (enc raw -2)
+  enc =  1   (enc raw 2)
+  enc =  2   (enc raw 4)
+  enc =  3   (enc raw 6)
+  enc =  4   (enc raw 8)
+  enc =  5   (enc raw 10)
+  button -> pot
+  pot = 20   (enc raw 10)
+  pot = 19   (enc raw 10)
+  pot =  3   (enc raw 10)
+  pot =  0   (enc raw 10)
+  pot = 13   (enc raw 10)
+  pot = 30   (enc raw 10)
+  pot = 58   (enc raw 10)
+  pot = 82   (enc raw 10)
+  pot = 90   (enc raw 10)
+  pot = 99   (enc raw 10)
+  pot = 96   (enc raw 10)
+  pot = 87   (enc raw 10)
+  pot = 81   (enc raw 10)
+  pot = 58   (enc raw 10)
+  pot = 39   (enc raw 10)
+  pot = 27   (enc raw 10)
+  pot = 18   (enc raw 10)
+  pot =  9   (enc raw 10)
+  pot =  0   (enc raw 10)
+  pot =  5   (enc raw 10)
+  pot = 16   (enc raw 10)
+  pot = 28   (enc raw 10)
+  pot = 38   (enc raw 10)
+  pot = 45   (enc raw 10)
+  pot = 53   (enc raw 10)
+  pot = 54   (enc raw 10)
+  pot = 51   (enc raw 10)
+  pot = 57   (enc raw 10)
+  pot = 66   (enc raw 10)
+  pot = 79   (enc raw 10)
+  pot = 81   (enc raw 10)
+  pot = 80   (enc raw 10)
+  pot = 74   (enc raw 10)
+  pot = 64   (enc raw 10)
+  pot = 63   (enc raw 10)
+
+[t] self test  [k] knobs  [i] I2C scan  [u] ultrasonic  [r] PIR  [?] menu

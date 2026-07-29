@@ -1,0 +1,137 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+
+
+===== PIN PROBE =====
+chip rev 301, flash 16 MB
+connecting to RSC-2G ....
+viewer: http://192.168.8.111:8080
+GPIOViewer >> Release 1.7.1
+GPIOViewer >> ESP32 Core Version 3.3.11
+GPIOViewer >> Chip Model:ESP32-D0WD-V3, revision:301
+GPIOViewer >> No PSRAM
+GPIOViewer >> Web Application mDNS URL is: http://gpioviewer.local:8080
+GPIOViewer >> Web Application URL is: http://192.168.8.111:8080
+
+--- census: driveable ---
+  GPIO2   ext pull-down / driven low
+  GPIO4   floating
+  GPIO5   floating
+  GPIO13  floating
+  GPIO14  floating
+  GPIO15  floating
+  GPIO16  floating
+  GPIO17  floating
+  GPIO18  floating
+  GPIO19  floating
+  GPIO21  floating
+  GPIO22  floating
+  GPIO23  floating
+  GPIO25  floating
+  GPIO26  floating
+  GPIO27  floating
+  GPIO32  floating
+  GPIO33  ext pull-down / driven low
+--- census: input-only ---
+  GPIO34  digital=0  142 mV
+  GPIO35  digital=0  142 mV
+  GPIO36  digital=0  142 mV
+  GPIO39  digital=0  142 mV
+
+[c] census  [a] ADC  [n] neopixel sweep  [k] knobs  [w] walk  [b] buttons  [i] I2C  [0-9] hold WS2812 on Nth driveable pin
+
+--- NEOPIXEL SWEEP: watch the 4 LEDs, ~2.5 s per pin ---
+  trying GPIO2  ... done
+  trying GPIO4  ... done
+  trying GPIO5  ... done
+  trying GPIO13 ... done
+  trying GPIO14 ... done
+  trying GPIO15 ... done
+  trying GPIO16 ... done
+  trying GPIO17 ... done
+  trying GPIO18 ... done
+  trying GPIO19 ... done
+  trying GPIO21 ... done
+  trying GPIO22 ... GPIOViewer >> Connected, sampling interval is 50ms
+done
+  trying GPIO23 ... done
+  trying GPIO25 ... done
+  trying GPIO26 ... 
+assert failed: xEventGroupClearBits event_groups.c:496 (xEventGroup)
+
+
+Backtrace: 0x4008c5d0:0x3ffb1e10 0x4008c595:0x3ffb1e30 0x40092b91:0x3ffb1e50 0x4008d2d9:0x3ffb1f90 0x400e88b0:0x3ffb1fb0 0x400e8a8a:0x3ffb1ff0 0x400e8669:0x3ffb2010 0x400e86a1:0x3ffb20a0 0x400e86f5:0x3ffb20c0 0x400e2f76:0x3ffb20f0 0x400e30c9:0x3ffb2110 0x400eb508:0x3ffb2130 0x4008d441:0x3ffb2150
+  #0  0x4008c5d0 in panic_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp_system/panic.c:477
+  #1  0x4008c595 in esp_system_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp_system/port/esp_system_chip.c:87
+  #2  0x40092b91 in __assert_func at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/newlib/src/assert.c:81
+  #3  0x4008d2d9 in xEventGroupClearBits at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/FreeRTOS-Kernel/event_groups.c:497
+     (inlined by) xEventGroupClearBits at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/FreeRTOS-Kernel/event_groups.c:488
+  #4  0x400e88b0 in _rmtWrite at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rmt.c:325
+  #5  0x400e8a8a in rmtWrite at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rmt.c:432
+  #6  0x400e8669 in rgbLedWriteOrdered at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rgb-led.c:94
+  #7  0x400e86a1 in rgbLedWrite at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rgb-led.c:26
+  #8  0x400e86f5 in neopixelWrite at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-rgb-led.c:22
+  #9  0x400e2f76 in neopixelSweep() at src/main.cpp:74
+  #10 0x400e30c9 in loop() at src/main.cpp:216
+  #11 0x400eb508 in loopTask(void*) at /home/mbz/.platformio/packages/framework-arduinoespressif32/cores/esp32/main.cpp:82
+
+
+
+
+
+ELF file SHA256: 619f57ab8
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+
+
+===== PIN PROBE =====
+chip rev 301, flash 16 MB
+connecting to RSC-2G [  1704][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 202 - AUTH_FAIL
+[  1734][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 202 - AUTH_FAIL
+..................................................
+WiFi failed (status 4) - serial only
+
+--- census: driveable ---
+  GPIO2   ext pull-down / driven low
+  GPIO4   floating
+  GPIO5   floating
+  GPIO13  floating
+  GPIO14  floating
+  GPIO15  floating
+  GPIO16  floating
+  GPIO17  floating
+  GPIO18  floating
+  GPIO19  floating
+  GPIO21  floating
+  GPIO22  floating
+  GPIO23  floating
+  GPIO25  floating
+  GPIO26  floating
+  GPIO27  floating
+  GPIO32  floating
+  GPIO33  ext pull-down / driven low
+--- census: input-only ---
+  GPIO34  digital=0  142 mV
+  GPIO35  digital=0  142 mV
+  GPIO36  digital=0  142 mV
+  GPIO39  digital=0  142 mV
+
+[c] census  [a] ADC  [n] neopixel sweep  [k] knobs  [w] walk  [b] buttons  [i] I2C  [0-9] hold WS2812 on Nth driveable pin
