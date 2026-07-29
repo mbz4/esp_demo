@@ -1,0 +1,51 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+
+
+===== ALIVE =====
+chip rev 301, 240 MHz, flash 16 MB
+
+--- pull census ---
+  GPIO4   floating
+  GPIO5   floating
+  GPIO13  floating
+  GPIO14  floating
+  GPIO16  floating
+  GPIO17  floating
+  GPIO18  floating
+  GPIO19  floating
+  GPIO21  floating
+  GPIO22  floating
+  GPIO23  floating
+  GPIO25  floating
+  GPIO26  floating
+  GPIO27  floating
+  GPIO32  floating
+  GPIO33  ext pull-down / driven low
+0 pin(s) carry an external pull-up
+
+--- I2C: Arduino defaults 21/22 ---
+[  2060][I][esp32-hal-i2c-ng.c:112] i2cInit(): Initializing I2C Master: num=0 sda=21 scl=22 freq=100000
+  0 device(s)
+
+--- I2C sweep skipped: fewer than 2 pulled-up pins ---
+
+connecting to RSC-2G ....
+IP 192.168.8.111
+GPIOViewer >> Release 1.7.1
+GPIOViewer >> ESP32 Core Version 3.3.11
+GPIOViewer >> Chip Model:ESP32-D0WD-V3, revision:301
+GPIOViewer >> No PSRAM
+GPIOViewer >> Web Application mDNS URL is: http://gpioviewer.local:8080
+GPIOViewer >> Web Application URL is: http://192.168.8.111:8080
+
+press 's' to rescan
+GPIOViewer >> Connected, sampling interval is 50ms

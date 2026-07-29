@@ -1,0 +1,329 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+[     7][D][esp32-hal-cpu.c:324] setCpuFrequencyMhz(): PLL: 480 / 2 = 240 Mhz, APB: 80000000 Hz
+=========== Before Setup Start ===========
+Chip Info:
+------------------------------------------
+  Model             : ESP32
+  Package           : D0WD-Q5
+  Revision          : 3.01
+  Cores             : 2
+  CPU Frequency     : 240 MHz
+  XTAL Frequency    : 40 MHz
+  Features Bitfield : 0x00000032
+  Embedded Flash    : No
+  Embedded PSRAM    : No
+  2.4GHz WiFi       : Yes
+  Classic BT        : Yes
+  BT Low Energy     : Yes
+  IEEE 802.15.4     : No
+------------------------------------------
+INTERNAL Memory Info:
+------------------------------------------
+  Total Size        :   329760 B ( 322.0 KB)
+  Free Bytes        :   285892 B ( 279.2 KB)
+  Allocated Bytes   :    36304 B (  35.5 KB)
+  Minimum Free Bytes:   251588 B ( 245.7 KB)
+  Largest Free Block:   110580 B ( 108.0 KB)
+------------------------------------------
+Flash Info:
+------------------------------------------
+  Chip Size         : 16777216B (16 MB)
+  Block Size        :    65536B (  64.0 KB)
+  Sector Size       :     4096B (   4.0 KB)
+  Page Size         :      256B (   0.2 KB)
+  Bus Speed         : 80 MHz
+  Flash Frequency   : 80 MHz (source: 80 MHz, divider: 1)
+  Bus Mode          : DIO
+------------------------------------------
+Partitions Info:
+------------------------------------------
+                nvs : addr: 0x00009000, size:    20.0 KB, type: DATA, subtype: NVS
+            otadata : addr: 0x0000E000, size:     8.0 KB, type: DATA, subtype: OTA
+               app0 : addr: 0x00010000, size:  3072.0 KB, type:  APP, subtype: OTA_0
+             spiffs : addr: 0x00310000, size:   896.0 KB, type: DATA, subtype: SPIFFS
+           coredump : addr: 0x003F0000, size:    64.0 KB, type: DATA, subtype: COREDUMP
+------------------------------------------
+Software Info:
+------------------------------------------
+  Compile Date/Time : Jul 29 2026 11:20:53
+  ESP-IDF Version   : v5.5.5
+  Arduino Version   : 3.3.11
+------------------------------------------
+Board Info:
+------------------------------------------
+  Arduino Board     : Espressif ESP32 Dev Module
+  Arduino Variant   : esp32
+  Core Debug Level  : 5
+  Arduino Runs Core : 1
+  Arduino Events on : 1
+  CDC On Boot       : 0
+============ Before Setup End ============
+[   499][V][esp32-hal-uart.c:1085] uartSetPins(): UART0: Driver not yet installed, storing pins for later attachment (RX:3, TX:1)
+[   510][V][esp32-hal-uart.c:1330] uartBegin(): UART0 baud(115200) Mode(0x800001c) rxPin(3) txPin(1)
+[   521][V][esp32-hal-uart.c:1417] uartBegin(): UART0 not installed. Starting installation
+[   532][V][esp32-hal-uart.c:1427] uartBegin(): UART0 RX FIFO full threshold set to 120 (value requested: 120 || FIFO Max = 128)
+[   545][V][esp32-hal-uart.c:1457] uartBegin(): Setting UART0 to use REF_TICK clock
+[   556][V][esp32-hal-uart.c:1492] uartBegin(): UART0: RX and TX signals are set not inverted.
+[   572][V][esp32-hal-uart.c:1513] uartBegin(): UART0 calling uartSetPins: RX=3, TX=1, CTS=-1, RTS=-1
+[   581][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_RX (2) cleared
+[   591][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_TX (3) cleared
+[   600][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_RX_TX (6) cleared
+[   610][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_CTS (4) cleared
+[   619][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_RTS (5) cleared
+[   629][V][esp32-hal-uart.c:998] _uartDetectPin(): RX: pin 3 -> UART0: currently [GPIO], attach=YES
+[   638][V][esp32-hal-uart.c:998] _uartDetectPin(): TX: pin 1 -> UART0: currently [GPIO], attach=YES
+[   647][D][esp32-hal-uart.c:1192] uartSetPins(): Attaching pin 3 to UART0 as RX
+[   654][V][esp32-hal-periman.c:192] perimanSetPinBus(): Pin 3 successfully set to type UART_RX (2) with bus 0x3ffbdb80
+[   665][V][esp32-hal-periman.c:267] perimanSetBusDeinit(): Deinit function for type UART_RX (2) successfully set to 0x400e7b78
+[   676][D][esp32-hal-uart.c:1196] uartSetPins(): Attaching pin 1 to UART0 as TX
+[   683][V][esp32-hal-periman.c:192] perimanSetPinBus(): Pin 1 successfully set to type UART_TX (3) with bus 0x3ffbdb80
+[   694][V][esp32-hal-periman.c:267] perimanSetBusDeinit(): Deinit function for type UART_TX (3) successfully set to 0x400e7a80
+[   705][V][esp32-hal-uart.c:1522] uartBegin(): UART0 initialization done.
+[   712][V][esp32-hal-uart.c:1573] uartSetRxFIFOFull(): UART0 RX FIFO Full value set to 120 from a requested value of 120
+[   737][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 101 - WIFI_READY
+[   827][V][STA.cpp:194] _onStaEvent(): STA Started
+[   832][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 110 - STA_START
+[   840][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 110 - STA_START
+........[  3291][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[  3302][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  3310][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  3318][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  3324][D][STA.cpp:163] _onStaArduinoEvent(): WiFi Reconnect Running
+[  3334][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[  3347][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  3355][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  3363][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[  5755][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[  5766][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  5774][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  5782][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  5788][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[  5798][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[  5811][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  5819][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  5827][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[  8220][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[  8230][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  8238][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  8246][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  8253][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[  8262][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[  8275][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  8283][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  8291][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 10684][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 10694][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 10702][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 10710][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 10717][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 10726][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 10739][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 10747][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 10755][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 13147][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 13158][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 13166][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 13174][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 13180][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+.[ 13190][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 13202][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 13211][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 13219][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 15611][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 15622][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 15630][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 15637][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 15644][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 15653][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 15666][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 15674][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 15682][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 18075][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 18085][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 18093][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 18101][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 18108][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 18117][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 18131][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 18140][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 18147][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 20538][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 20549][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 20557][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 20565][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 20571][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 20580][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 20593][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 20601][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 20609][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 23003][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 23013][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 23021][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 23029][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 23035][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 23045][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 23058][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 23066][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 23074][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 25466][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 25477][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 25485][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 25493][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 25499][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+.[ 25509][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 25521][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 25530][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 25537][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 27930][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 27941][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 27949][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 27957][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 27963][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 27972][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 27985][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 27993][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 28001][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 30394][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 30404][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 30412][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 30420][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 30427][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 30436][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 30449][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 30457][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 30465][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 32858][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 32868][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 32877][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 32884][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 32891][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 32900][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 32913][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 32921][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 32929][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 35321][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 35332][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 35340][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 35348][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 35354][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 35364][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 35376][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 35385][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 35393][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 37785][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 37796][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 37804][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 37812][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 37818][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+.[ 37828][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 37841][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 37849][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 37857][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 40249][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 40260][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 40268][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 40276][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 40282][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 40292][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 40305][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 40313][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 40321][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 42713][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 42724][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 42732][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 42740][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 42746][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 42756][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 42770][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 42778][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 42786][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 45177][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 45187][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 45195][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 45203][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 45209][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 45219][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 45232][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 45240][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 45248][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 47641][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 47651][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 47659][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 47667][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 47674][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 47683][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 47696][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 47704][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 47712][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 50104][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 50115][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 50123][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 50131][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 50137][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+.[ 50147][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 50160][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 50168][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 50176][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 52568][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 52578][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 52586][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 52594][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 52601][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 52610][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 52623][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 52631][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 52639][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 55032][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 55042][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 55050][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 55058][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 55065][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 55074][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 55088][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 55096][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 55104][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 57496][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 57506][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 57514][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 57522][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 57528][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 57538][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 57551][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 57559][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 57567][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 59959][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 59970][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 59978][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 59986][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 59992][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 60002][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 60015][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 60023][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 60031][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 62424][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 62434][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 62442][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 62450][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 62457][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+.[ 62466][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 62479][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 62487][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 62495][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 64889][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[ 64899][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 64907][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 64915][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 64921][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[ 64931][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[ 64944][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[ 64952][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[ 64960][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING

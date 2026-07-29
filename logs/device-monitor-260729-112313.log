@@ -1,0 +1,122 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+[     7][D][esp32-hal-cpu.c:324] setCpuFrequencyMhz(): PLL: 480 / 2 = 240 Mhz, APB: 80000000 Hz
+=========== Before Setup Start ===========
+Chip Info:
+------------------------------------------
+  Model             : ESP32
+  Package           : D0WD-Q5
+  Revision          : 3.01
+  Cores             : 2
+  CPU Frequency     : 240 MHz
+  XTAL Frequency    : 40 MHz
+  Features Bitfield : 0x00000032
+  Embedded Flash    : No
+  Embedded PSRAM    : No
+  2.4GHz WiFi       : Yes
+  Classic BT        : Yes
+  BT Low Energy     : Yes
+  IEEE 802.15.4     : No
+------------------------------------------
+INTERNAL Memory Info:
+------------------------------------------
+  Total Size        :   329760 B ( 322.0 KB)
+  Free Bytes        :   285316 B ( 278.6 KB)
+  Allocated Bytes   :    36784 B (  35.9 KB)
+  Minimum Free Bytes:   251144 B ( 245.3 KB)
+  Largest Free Block:   110580 B ( 108.0 KB)
+------------------------------------------
+Flash Info:
+------------------------------------------
+  Chip Size         : 16777216B (16 MB)
+  Block Size        :    65536B (  64.0 KB)
+  Sector Size       :     4096B (   4.0 KB)
+  Page Size         :      256B (   0.2 KB)
+  Bus Speed         : 80 MHz
+  Flash Frequency   : 80 MHz (source: 80 MHz, divider: 1)
+  Bus Mode          : DIO
+------------------------------------------
+Partitions Info:
+------------------------------------------
+                nvs : addr: 0x00009000, size:    20.0 KB, type: DATA, subtype: NVS
+            otadata : addr: 0x0000E000, size:     8.0 KB, type: DATA, subtype: OTA
+               app0 : addr: 0x00010000, size:  3072.0 KB, type:  APP, subtype: OTA_0
+             spiffs : addr: 0x00310000, size:   896.0 KB, type: DATA, subtype: SPIFFS
+           coredump : addr: 0x003F0000, size:    64.0 KB, type: DATA, subtype: COREDUMP
+------------------------------------------
+Software Info:
+------------------------------------------
+  Compile Date/Time : Jul 29 2026 11:20:53
+  ESP-IDF Version   : v5.5.5
+  Arduino Version   : 3.3.11
+------------------------------------------
+Board Info:
+------------------------------------------
+  Arduino Board     : Espressif ESP32 Dev Module
+  Arduino Variant   : esp32
+  Core Debug Level  : 5
+  Arduino Runs Core : 1
+  Arduino Events on : 1
+  CDC On Boot       : 0
+============ Before Setup End ============
+[   510][V][esp32-hal-uart.c:1085] uartSetPins(): UART0: Driver not yet installed, storing pins for later attachment (RX:3, TX:1)
+[   521][V][esp32-hal-uart.c:1330] uartBegin(): UART0 baud(115200) Mode(0x800001c) rxPin(3) txPin(1)
+[   532][V][esp32-hal-uart.c:1417] uartBegin(): UART0 not installed. Starting installation
+[   543][V][esp32-hal-uart.c:1427] uartBegin(): UART0 RX FIFO full threshold set to 120 (value requested: 120 || FIFO Max = 128)
+[   556][V][esp32-hal-uart.c:1457] uartBegin(): Setting UART0 to use REF_TICK clock
+[   567][V][esp32-hal-uart.c:1492] uartBegin(): UART0: RX and TX signals are set not inverted.
+[   583][V][esp32-hal-uart.c:1513] uartBegin(): UART0 calling uartSetPins: RX=3, TX=1, CTS=-1, RTS=-1
+[   592][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_RX (2) cleared
+[   602][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_TX (3) cleared
+[   611][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_RX_TX (6) cleared
+[   621][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_CTS (4) cleared
+[   630][V][esp32-hal-periman.c:283] perimanClearBusDeinit(): Deinit function for type UART_RTS (5) cleared
+[   640][V][esp32-hal-uart.c:998] _uartDetectPin(): RX: pin 3 -> UART0: currently [GPIO], attach=YES
+[   649][V][esp32-hal-uart.c:998] _uartDetectPin(): TX: pin 1 -> UART0: currently [GPIO], attach=YES
+[   658][D][esp32-hal-uart.c:1192] uartSetPins(): Attaching pin 3 to UART0 as RX
+[   665][V][esp32-hal-periman.c:192] perimanSetPinBus(): Pin 3 successfully set to type UART_RX (2) with bus 0x3ffbdb80
+[   676][V][esp32-hal-periman.c:267] perimanSetBusDeinit(): Deinit function for type UART_RX (2) successfully set to 0x400e7b78
+[   687][D][esp32-hal-uart.c:1196] uartSetPins(): Attaching pin 1 to UART0 as TX
+[   694][V][esp32-hal-periman.c:192] perimanSetPinBus(): Pin 1 successfully set to type UART_TX (3) with bus 0x3ffbdb80
+[   705][V][esp32-hal-periman.c:267] perimanSetBusDeinit(): Deinit function for type UART_TX (3) successfully set to 0x400e7a80
+[   716][V][esp32-hal-uart.c:1522] uartBegin(): UART0 initialization done.
+[   723][V][esp32-hal-uart.c:1573] uartSetRxFIFOFull(): UART0 RX FIFO Full value set to 120 from a requested value of 120
+[   752][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 101 - WIFI_READY
+[   833][V][STA.cpp:194] _onStaEvent(): STA Started
+[   838][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 110 - STA_START
+[   846][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 110 - STA_START
+........[  3278][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[  3288][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  3296][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  3304][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  3311][D][STA.cpp:163] _onStaArduinoEvent(): WiFi Reconnect Running
+[  3320][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[  3333][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  3341][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  3349][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[  5742][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[  5752][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  5760][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  5768][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  5775][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[  5784][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[  5797][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  5805][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  5813][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[  8206][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 201
+[  8217][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  8225][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  8233][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  8239][D][STA.cpp:166] _onStaArduinoEvent(): WiFi AutoReconnect Running
+[  8249][V][STA.cpp:224] _onStaEvent(): STA Disconnected: SSID: RSC_2G, BSSID: 00:00:00:00:00:00, Reason: 36
+[  8261][V][NetworkEvents.cpp:132] _checkForEvent(): Network Event: 113 - STA_DISCONNECTED
+[  8270][V][STA.cpp:118] _onStaArduinoEvent(): Arduino STA Event: 113 - STA_DISCONNECTED
+[  8277][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING

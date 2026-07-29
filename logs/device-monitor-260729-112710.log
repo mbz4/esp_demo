@@ -1,0 +1,214 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+
+scanning...
+ 0  ch4    -40 dBm  RSC-2G
+ 1  ch1    -53 dBm  Anakin Skyrouter
+ 2  ch6    -63 dBm  <hidden>
+ 3  ch11   -71 dBm  robootika
+ 4  ch11   -71 dBm  eduroam
+ 5  ch11   -72 dBm  ut-public
+ 6  ch9    -74 dBm  Andmeturve-2GHz
+ 7  ch6    -75 dBm  eduroam
+ 8  ch1    -76 dBm  Robotiklubi24
+ 9  ch6    -76 dBm  ut-public
+10  ch6    -78 dBm  pepper
+11  ch11   -79 dBm  eduroam
+12  ch11   -79 dBm  ut-public
+13  ch11   -81 dBm  eduroam
+14  ch11   -83 dBm  eduroam
+15  ch11   -83 dBm  ut-public
+16  ch6    -84 dBm  deltactl
+17  ch1    -85 dBm  ut-public
+18  ch1    -85 dBm  eduroam
+19  ch1    -86 dBm  ut-public
+20  ch1    -86 dBm  eduroam
+21  ch6    -86 dBm  eduroam
+22  ch6    -86 dBm  ut-public
+23  ch11   -86 dBm  ut-public
+24  ch11   -86 dBm  eduroam
+25  ch6    -89 dBm  ut-public
+26  ch6    -89 dBm  eduroam
+27  ch1    -90 dBm  CGVR Lab Ceiling
+28  ch1    -90 dBm  eduroam
+29  ch1    -90 dBm  ut-public
+
+scanning...
+ 0  ch4    -41 dBm  RSC-2G
+ 1  ch6    -63 dBm  <hidden>
+ 2  ch11   -70 dBm  ut-public
+ 3  ch1    -71 dBm  Anakin Skyrouter
+ 4  ch11   -71 dBm  eduroam
+ 5  ch11   -71 dBm  robootika
+ 6  ch9    -74 dBm  Andmeturve-2GHz
+ 7  ch6    -75 dBm  eduroam
+ 8  ch6    -76 dBm  ut-public
+ 9  ch6    -77 dBm  pepper
+10  ch11   -79 dBm  eduroam
+11  ch11   -79 dBm  ut-public
+12  ch11   -81 dBm  eduroam
+13  ch11   -81 dBm  ut-public
+14  ch11   -82 dBm  eduroam
+15  ch11   -83 dBm  eduroam
+16  ch11   -83 dBm  ut-public
+17  ch1    -84 dBm  eduroam
+18  ch1    -84 dBm  ut-public
+19  ch6    -84 dBm  deltactl
+20  ch1    -85 dBm  Robotiklubi24
+21  ch6    -85 dBm  eduroam
+22  ch11   -85 dBm  ut-public
+23  ch1    -86 dBm  eduroam
+24  ch1    -86 dBm  ut-public
+25  ch6    -86 dBm  ut-public
+26  ch6    -88 dBm  eduroam
+27  ch6    -89 dBm  ut-public
+28  ch1    -91 dBm  CGVR Lab Ceiling
+
+scanning...
+ 0  ch4    -41 dBm  RSC-2G
+ 1  ch1    -50 dBm  Anakin Skyrouter
+ 2  ch6    -57 dBm  <hidden>
+ 3  ch11   -69 dBm  eduroam
+ 4  ch11   -69 dBm  robootika
+ 5  ch11   -70 dBm  ut-public
+ 6  ch6    -72 dBm  ut-public
+ 7  ch9    -72 dBm  Andmeturve-2GHz
+ 8  ch6    -73 dBm  eduroam
+ 9  ch6    -77 dBm  pepper
+10  ch11   -77 dBm  eduroam
+11  ch1    -78 dBm  Robotiklubi24
+12  ch11   -78 dBm  ut-public
+13  ch11   -79 dBm  ut-public
+14  ch11   -80 dBm  eduroam
+15  ch11   -80 dBm  eduroam
+16  ch11   -81 dBm  ut-public
+17  ch1    -82 dBm  ut-public
+18  ch1    -82 dBm  eduroam
+19  ch1    -82 dBm  eduroam
+20  ch6    -82 dBm  eduroam
+21  ch6    -82 dBm  ut-public
+22  ch6    -82 dBm  deltactl
+23  ch11   -82 dBm  ut-public
+24  ch1    -83 dBm  ut-public
+25  ch11   -84 dBm  eduroam
+26  ch1    -86 dBm  ut-public
+27  ch1    -87 dBm  eduroam
+28  ch6    -87 dBm  ut-public
+29  ch6    -88 dBm  eduroam
+30  ch1    -89 dBm  CGVR Lab Ceiling
+31  ch11   -93 dBm  EB8D1F02-EE81fIZHy21AO7B
+32  ch1    -94 dBm  CGVR Lab
+
+scanning...
+ 0  ch4    -38 dBm  RSC-2G
+ 1  ch1    -52 dBm  Anakin Skyrouter
+ 2  ch6    -61 dBm  <hidden>
+ 3  ch9    -68 dBm  Andmeturve-2GHz
+ 4  ch11   -69 dBm  ut-public
+ 5  ch11   -69 dBm  robootika
+ 6  ch11   -69 dBm  eduroam
+ 7  ch6    -71 dBm  eduroam
+ 8  ch6    -71 dBm  ut-public
+ 9  ch6    -74 dBm  pepper
+10  ch11   -78 dBm  ut-public
+11  ch1    -79 dBm  Robotiklubi24
+12  ch11   -79 dBm  eduroam
+13  ch11   -79 dBm  ut-public
+14  ch11   -79 dBm  eduroam
+15  ch11   -81 dBm  ut-public
+16  ch11   -81 dBm  eduroam
+17  ch1    -82 dBm  eduroam
+18  ch1    -82 dBm  ut-public
+19  ch1    -82 dBm  eduroam
+20  ch6    -82 dBm  eduroam
+21  ch11   -82 dBm  ut-public
+22  ch1    -83 dBm  ut-public
+23  ch6    -83 dBm  ut-public
+24  ch6    -83 dBm  deltactl
+25  ch11   -84 dBm  eduroam
+26  ch6    -86 dBm  eduroam
+27  ch1    -87 dBm  ut-public
+28  ch6    -87 dBm  ut-public
+29  ch1    -88 dBm  eduroam
+30  ch1    -89 dBm  CGVR Lab Ceiling
+31  ch1    -90 dBm  CGVR Lab
+32  ch11   -91 dBm  EB8D1F02-EE81fIZHy21AO7B
+
+scanning...
+ 0  ch4    -40 dBm  RSC-2G
+ 1  ch6    -59 dBm  <hidden>
+ 2  ch1    -63 dBm  Anakin Skyrouter
+ 3  ch11   -69 dBm  ut-public
+ 4  ch9    -70 dBm  Andmeturve-2GHz
+ 5  ch11   -70 dBm  robootika
+ 6  ch11   -70 dBm  eduroam
+ 7  ch6    -73 dBm  eduroam
+ 8  ch6    -73 dBm  ut-public
+ 9  ch6    -80 dBm  pepper
+10  ch11   -80 dBm  eduroam
+11  ch11   -80 dBm  ut-public
+12  ch11   -81 dBm  eduroam
+13  ch11   -81 dBm  ut-public
+14  ch1    -83 dBm  eduroam
+15  ch1    -83 dBm  ut-public
+16  ch11   -83 dBm  eduroam
+17  ch11   -83 dBm  ut-public
+18  ch1    -84 dBm  eduroam
+19  ch6    -84 dBm  ut-public
+20  ch6    -84 dBm  deltactl
+21  ch1    -85 dBm  ut-public
+22  ch1    -85 dBm  Robotiklubi24
+23  ch6    -85 dBm  eduroam
+24  ch11   -85 dBm  eduroam
+25  ch11   -85 dBm  ut-public
+26  ch6    -88 dBm  eduroam
+27  ch6    -88 dBm  ut-public
+28  ch1    -89 dBm  eduroam
+29  ch1    -89 dBm  ut-public
+30  ch1    -91 dBm  CGVR Lab Ceiling
+31  ch1    -93 dBm  CGVR Lab
+32  ch11   -94 dBm  EB8D1F02-EE81fIZHy21AO7B
+
+scanning...
+ 0  ch4    -40 dBm  RSC-2G
+ 1  ch1    -51 dBm  Anakin Skyrouter
+ 2  ch6    -56 dBm  <hidden>
+ 3  ch9    -70 dBm  Andmeturve-2GHz
+ 4  ch11   -71 dBm  ut-public
+ 5  ch11   -71 dBm  robootika
+ 6  ch11   -71 dBm  eduroam
+ 7  ch6    -75 dBm  ut-public
+ 8  ch6    -76 dBm  eduroam
+ 9  ch6    -77 dBm  pepper
+10  ch1    -79 dBm  Robotiklubi24
+11  ch11   -79 dBm  eduroam
+12  ch11   -79 dBm  ut-public
+13  ch11   -81 dBm  ut-public
+14  ch11   -82 dBm  eduroam
+15  ch1    -83 dBm  eduroam
+16  ch11   -83 dBm  ut-public
+17  ch6    -84 dBm  deltactl
+18  ch11   -84 dBm  eduroam
+19  ch1    -85 dBm  ut-public
+20  ch1    -85 dBm  ut-public
+21  ch6    -85 dBm  eduroam
+22  ch6    -85 dBm  ut-public
+23  ch11   -85 dBm  ut-public
+24  ch1    -86 dBm  eduroam
+25  ch11   -87 dBm  eduroam
+26  ch6    -88 dBm  ut-public
+27  ch6    -88 dBm  eduroam
+28  ch1    -89 dBm  eduroam
+29  ch1    -90 dBm  CGVR Lab Ceiling
+30  ch1    -92 dBm  CGVR Lab
+31  ch10   -93 dBm  manta
+32  ch10   -94 dBm  Semubot
+33  ch10   -94 dBm  <hidden>

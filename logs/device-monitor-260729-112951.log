@@ -1,0 +1,134 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4640
+load:0x40078000,len:15632
+load:0x40080400,len:3164
+entry 0x4008059c
+
+
+===== ALIVE =====
+chip rev 301, 240 MHz, flash 16 MB
+
+--- pull census ---
+  GPIO4   floating
+  GPIO5   floating
+  GPIO13  floating
+  GPIO14  floating
+  GPIO16  floating
+  GPIO17  floating
+  GPIO18  floating
+  GPIO19  floating
+  GPIO21  floating
+  GPIO22  floating
+  GPIO23  floating
+  GPIO25  floating
+  GPIO26  floating
+  GPIO27  floating
+  GPIO32  floating
+  GPIO33  ext pull-down / driven low
+0 pin(s) carry an external pull-up
+
+--- I2C: Arduino defaults 21/22 ---
+[  2060][I][esp32-hal-i2c-ng.c:112] i2cInit(): Initializing I2C Master: num=0 sda=21 scl=22 freq=100000
+  0 device(s)
+
+--- I2C sweep skipped: fewer than 2 pulled-up pins ---
+
+connecting to RSC_2G ........[  4614][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  4625][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[  7045][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  7056][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[  9476][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[  9487][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 11907][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 11919][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 14338][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 14349][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+........[ 16768][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 16779][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+..
+WiFi failed (status 6) - carrying on without the viewer
+
+press 's' to rescan
+[ 19198][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 19210][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 21629][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 21641][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 24061][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 24072][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 26492][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 26505][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 28924][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 28935][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 31355][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 31366][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 33786][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 33797][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 36217][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 36229][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 38648][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 38659][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 41079][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 41091][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 43511][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 43522][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 45942][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 45954][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 48374][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 48385][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 50805][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 50817][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 53236][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 53247][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 55667][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 55678][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 58098][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 58109][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 60529][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 60541][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 62960][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 62971][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 65391][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 65403][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 67822][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 67834][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 70254][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 70265][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 72684][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 72696][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 75115][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 75127][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 77546][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 77558][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 79977][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 79989][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 82409][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 82420][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 84840][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 84852][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 87271][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 87283][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 89702][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 89714][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 92133][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 92144][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 94564][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 94576][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 96995][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 97007][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[ 99427][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[ 99438][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[101858][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[101869][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[104289][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[104301][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[106720][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[106731][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[109151][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[109162][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
+[111581][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 201 - NO_AP_FOUND
+[111593][W][STA.cpp:145] _onStaArduinoEvent(): Reason: 36 - STA_LEAVING
