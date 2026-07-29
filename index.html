@@ -197,7 +197,7 @@
       <div id="log"><span class="sys">Connect a board to begin.</span>
 </div>
       <div class="keyline">
-        <input id="key" placeholder="Type here — every key goes straight to the board" disabled autocomplete="off">
+        <input id="key" placeholder="Type a command or an answer, then press Enter" disabled autocomplete="off">
       </div>
     </main>
   </div>
@@ -333,7 +333,7 @@ $('connect').addEventListener('click', connect);
 $('reset').addEventListener('click', resetBoard);
 $('dtr').addEventListener('change', applySignals);
 $('rts').addEventListener('change', applySignals);
-document.querySelectorAll('.cmd').forEach(b => b.addEventListener('click', () => { send(b.dataset.k); $('key').focus(); }));
+document.querySelectorAll('.cmd').forEach(b => b.addEventListener('click', () => { send(b.dataset.k + '\n'); $('key').focus(); }));
 $('clear').addEventListener('click', () => { logEl.textContent = ''; });
 $('save').addEventListener('click', () => {
   const a = document.createElement('a');
@@ -342,8 +342,11 @@ $('save').addEventListener('click', () => {
   a.click(); URL.revokeObjectURL(a.href);
 });
 $('key').addEventListener('keydown', e => {
-  if (e.key.length === 1){ e.preventDefault(); send(e.key); }
-  else if (e.key === 'Enter'){ e.preventDefault(); send('\n'); }
+  if (e.key !== 'Enter') return;
+  e.preventDefault();
+  const line = e.target.value;
+  e.target.value = '';
+  send(line + '\n');
 });
 navigator.serial?.addEventListener('disconnect', () => { if (port) disconnect(); });
 window.addEventListener('beforeunload', () => { if (port) { try{ port.close(); }catch(_){} } });

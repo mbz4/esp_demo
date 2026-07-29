@@ -1,32 +1,110 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <WiFi.h>
+#include <Preferences.h>
+#include <gpio_viewer.h>
 #include "esp_cpu.h"
 
 // ---------------- UT-Nutiplaat R2 pin map ----------------
-constexpr uint8_t SR_DATA   = 27;   // 74HCT595 DI
-constexpr uint8_t SR_CLK    = 12;   // 74HCT595 SCLK
-constexpr uint8_t SR_LATCH  = 14;   // 74HCT595 LCLK
-constexpr uint8_t WS2812    = 15;   // 4x WS2812C via 74LV1T125
-constexpr uint8_t ENC_A     = 35;
-constexpr uint8_t ENC_B     = 34;
-constexpr uint8_t ENC_BTN   = 2;    // active HIGH, external pull-down
-constexpr uint8_t POT       = 39;
-constexpr uint8_t I2C_SDA   = 25;
-constexpr uint8_t I2C_SCL   = 26;
-constexpr uint8_t US_TRIG   = 32;
-constexpr uint8_t US_ECHO   = 33;
-constexpr uint8_t PIR       = 13;
+constexpr uint8_t SR_DATA  = 27;   // 74HCT595 DI
+constexpr uint8_t SR_CLK   = 12;   // 74HCT595 SCLK
+constexpr uint8_t SR_LATCH = 14;   // 74HCT595 LCLK
+constexpr uint8_t WS2812   = 15;   // 4x WS2812C via 74LV1T125 level shifter
+constexpr uint8_t ENC_A    = 35;
+constexpr uint8_t ENC_B    = 34;
+constexpr uint8_t ENC_BTN  = 2;    // active HIGH, external pull-down
+constexpr uint8_t POT      = 39;   // ADC1_CH3
+constexpr uint8_t I2C_SDA  = 25;
+constexpr uint8_t I2C_SCL  = 26;
+constexpr uint8_t US_TRIG  = 32;
+constexpr uint8_t US_ECHO  = 33;
+constexpr uint8_t PIR      = 13;
 
-const char *WIFI_SSID = "RSC-2G";
-const char *WIFI_PASS = "studybuddy";
+// Optional build-flag fallback. NVS always wins if it holds anything.
+#ifndef WIFI_SSID
+#define WIFI_SSID ""
+#endif
+#ifndef WIFI_PASS
+#define WIFI_PASS ""
+#endif
 
-// ---------------- 7-segment ----------------
-// seg bits: 0=a 1=b 2=c 3=d 4=e 5=f 6=g 7=dp   (common cathode, active high)
+GPIOViewer gpio_viewer;
+Preferences prefs;
+String wifiSsid, wifiPass;
+
+// ---------------- credentials in NVS ----------------
+void loadCreds() {
+  prefs.begin("wifi", true);            // NOT_FOUND on first boot is expected
+  wifiSsid = prefs.getString("ssid", WIFI_SSID);
+  wifiPass = prefs.getString("pass", WIFI_PASS);
+  prefs.end();
+}
+
+String readLine(const char *prompt, bool echo = true) {
+  Serial.print(prompt);
+  Serial.flush();
+  String s;
+  for (;;) {
+    while (!Serial.available()) delay(10);
+    char c = Serial.read();
+    if (c == '\r') continue;
+    if (c == '\n') break;
+    if (c == 8 || c == 127) {
+      if (s.length()) { s.remove(s.length() - 1); Serial.print("\b \b"); Serial.flush(); }
+      continue;
+    }
+    s += c;
+    Serial.print(echo ? c : '*');
+    Serial.flush();
+  }
+  Serial.println();
+  return s;
+}
+
+// Fully stop the radio so background reconnects can't spam the console.
+void radioOff() {
+  WiFi.setAutoReconnect(false);
+  WiFi.disconnect(true, true);
+  WiFi.mode(WIFI_OFF);
+  delay(100);
+}
+
+void wifiSetup() {
+  radioOff();                            // silence retries while typing
+  Serial.println(F("\n--- WiFi setup ---"));
+  String s = readLine("SSID:     ");
+  s.trim();                              // kill stray spaces from pasting
+  if (s.isEmpty()) { Serial.println(F("cancelled - nothing entered")); return; }
+  String p = readLine("Password: ", false);
+
+  Serial.printf("\n  SSID     [%s]\n", s.c_str());
+  Serial.printf("  password %u characters\n", p.length());
+  String ok = readLine("save and restart? (y/n): ");
+  if (ok != "y" && ok != "Y") { Serial.println(F("cancelled - nothing saved")); return; }
+
+  prefs.begin("wifi", false);
+  prefs.putString("ssid", s);
+  prefs.putString("pass", p);
+  prefs.end();
+  Serial.println(F("saved - restarting"));
+  delay(400);
+  ESP.restart();
+}
+
+void wifiForget() {
+  prefs.begin("wifi", false);
+  prefs.clear();
+  prefs.end();
+  Serial.println(F("credentials cleared - restarting"));
+  delay(400);
+  ESP.restart();
+}
+
+// ---------------- 7-segment via two 74HCT595 ----------------
+// segment bits: 0=a 1=b 2=c 3=d 4=e 5=f 6=g 7=dp  (common cathode, active high)
 const uint8_t FONT[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
 
-// U9 outputs Q0..Q7 -> E D C DP B A G F
-static uint8_t mapU9(uint8_t s) {
+static uint8_t mapU9(uint8_t s) {          // Q0..Q7 -> E D C DP B A G F
   uint8_t o = 0;
   if (s & 0x10) o |= 1 << 0;  if (s & 0x08) o |= 1 << 1;
   if (s & 0x04) o |= 1 << 2;  if (s & 0x80) o |= 1 << 3;
@@ -34,8 +112,7 @@ static uint8_t mapU9(uint8_t s) {
   if (s & 0x40) o |= 1 << 6;  if (s & 0x20) o |= 1 << 7;
   return o;
 }
-// U10 outputs Q0..Q7 -> B A F E D G C DP
-static uint8_t mapU10(uint8_t s) {
+static uint8_t mapU10(uint8_t s) {         // Q0..Q7 -> B A F E D G C DP
   uint8_t o = 0;
   if (s & 0x02) o |= 1 << 0;  if (s & 0x01) o |= 1 << 1;
   if (s & 0x20) o |= 1 << 2;  if (s & 0x10) o |= 1 << 3;
@@ -49,24 +126,20 @@ void srInit() {
   digitalWrite(SR_CLK, LOW); digitalWrite(SR_LATCH, LOW);
 }
 
-// U9 is first in the chain, so U10's byte must be shifted out first.
-void segRaw(uint8_t segA, uint8_t segB) {
+void segRaw(uint8_t segA, uint8_t segB) {   // U9 is first in the chain
   digitalWrite(SR_LATCH, LOW);
   shiftOut(SR_DATA, SR_CLK, MSBFIRST, mapU10(segB));
   shiftOut(SR_DATA, SR_CLK, MSBFIRST, mapU9(segA));
   digitalWrite(SR_LATCH, HIGH);
 }
-
-void segNumber(int v) {
-  v = constrain(v, 0, 99);
-  segRaw(FONT[v / 10], FONT[v % 10]);
-}
-
+void segNumber(int v) { v = constrain(v, 0, 99); segRaw(FONT[v / 10], FONT[v % 10]); }
 void segBlank() { segRaw(0, 0); }
 
-// ---------------- WS2812 (4 pixels, GRB) ----------------
+// ---------------- WS2812, 4 pixels ----------------
+uint8_t px[12];
+
 static void wsShow(const uint8_t *b, size_t n) {
-  const uint32_t T0H = 84, T1H = 168, TOTAL = 300;   // cycles @240 MHz
+  const uint32_t T0H = 84, T1H = 168, TOTAL = 300;   // cycles at 240 MHz
   const uint32_t mask = 1UL << WS2812;
   portDISABLE_INTERRUPTS();
   for (size_t i = 0; i < n; i++)
@@ -82,15 +155,14 @@ static void wsShow(const uint8_t *b, size_t n) {
   delayMicroseconds(300);
 }
 
-uint8_t px[12];
 void pixelSet(int i, uint8_t r, uint8_t g, uint8_t b) {
   if (i < 0 || i > 3) return;
   px[i * 3] = g; px[i * 3 + 1] = r; px[i * 3 + 2] = b;
 }
-void pixelShow() { wsShow(px, sizeof(px)); }
+void pixelShow()  { wsShow(px, sizeof(px)); }
 void pixelClear() { memset(px, 0, sizeof(px)); pixelShow(); }
 
-// ---------------- tests ----------------
+// ---------------- activities ----------------
 void selfTest() {
   Serial.println(F("\n--- SELF TEST ---"));
   Serial.println(F("  7-seg: all segments"));
@@ -105,13 +177,12 @@ void selfTest() {
     for (int i = 0; i < 4; i++) {
       pixelClear(); pixelSet(i, C[c][0], C[c][1], C[c][2]); pixelShow(); delay(140);
     }
-  pixelClear();
-  segBlank();
+  pixelClear(); segBlank();
   Serial.println(F("  done"));
 }
 
 void i2cScan() {
-  Serial.println(F("\n--- I2C @ 25/26 ---"));
+  Serial.println(F("\n--- I2C @ SDA 25 / SCL 26 ---"));
   Wire.end(); Wire.begin(I2C_SDA, I2C_SCL, 100000);
   uint8_t n = 0;
   for (uint8_t a = 8; a < 120; a++) {
@@ -134,11 +205,11 @@ long usDistanceMm() {
 }
 
 void usTest() {
-  Serial.println(F("\n--- ULTRASONIC 15 s (J6) ---"));
+  Serial.println(F("\n--- ULTRASONIC 15 s (header J6) ---"));
   uint32_t t0 = millis();
   while (millis() - t0 < 15000) {
     long mm = usDistanceMm();
-    if (mm < 0) { Serial.println(F("  timeout (sensor fitted?)")); segBlank(); }
+    if (mm < 0) { Serial.println(F("  timeout - sensor fitted?")); segBlank(); }
     else { Serial.printf("  %ld mm\n", mm); segNumber(mm / 10); }
     delay(300);
   }
@@ -146,7 +217,7 @@ void usTest() {
 }
 
 void pirTest() {
-  Serial.println(F("\n--- PIR 15 s (J2) ---"));
+  Serial.println(F("\n--- PIR 15 s (header J2) ---"));
   pinMode(PIR, INPUT);
   bool last = digitalRead(PIR);
   uint32_t t0 = millis();
@@ -158,26 +229,25 @@ void pirTest() {
 }
 
 void knobs() {
-  Serial.println(F("\n--- KNOBS 30 s: pot -> display+pixels, encoder -> count ---"));
+  Serial.println(F("\n--- KNOBS 30 s: pot drives display, encoder counts, button swaps ---"));
   pinMode(ENC_A, INPUT); pinMode(ENC_B, INPUT); pinMode(ENC_BTN, INPUT);
   static const int8_t QTAB[16] = {0,-1,1,0, 1,0,0,-1, -1,0,0,1, 0,1,-1,0};
   uint8_t prev = (digitalRead(ENC_A) << 1) | digitalRead(ENC_B);
   int32_t pos = 0, shown = -999;
-  bool btn = digitalRead(ENC_BTN), lastBtn = btn;
-  bool potMode = true;
+  bool btn, lastBtn = digitalRead(ENC_BTN), potMode = true;
   uint32_t t0 = millis(), tick = 0;
 
   while (millis() - t0 < 30000) {
     uint8_t now = (digitalRead(ENC_A) << 1) | digitalRead(ENC_B);
     if (now != prev) { pos += QTAB[(prev << 2) | now]; prev = now; }
     btn = digitalRead(ENC_BTN);
-    if (btn && !lastBtn) { potMode = !potMode; Serial.printf("  button -> %s\n", potMode ? "pot" : "encoder"); }
+    if (btn && !lastBtn) { potMode = !potMode; Serial.printf("  source -> %s\n", potMode ? "pot" : "encoder"); }
     lastBtn = btn;
 
     if (millis() - tick > 100) {
       tick = millis();
       int val = potMode ? map(analogRead(POT), 0, 4095, 0, 99)
-                        : (int)((pos / 2) % 100 + 100) % 100;
+                        : (int)(((pos / 2) % 100 + 100) % 100);
       if (val != shown) {
         shown = val;
         segNumber(val);
@@ -185,15 +255,64 @@ void knobs() {
         pixelClear();
         for (int i = 0; i <= lit && i < 4; i++) pixelSet(i, 0, 40, 20);
         pixelShow();
-        Serial.printf("  %s = %2d   (enc raw %ld)\n", potMode ? "pot" : "enc", val, pos);
+        Serial.printf("  %s = %2d   (encoder raw %ld)\n", potMode ? "pot" : "enc", val, pos);
       }
     }
   }
   segBlank(); pixelClear();
 }
 
+// ---------------- WiFi + viewer ----------------
+bool connectWiFi(uint32_t timeoutMs) {
+  if (wifiSsid.isEmpty()) {
+    Serial.println(F("no WiFi credentials stored - press W to set them"));
+    return false;
+  }
+  Serial.printf("stored SSID: [%s]\n", wifiSsid.c_str());
+  WiFi.persistent(false);
+  WiFi.mode(WIFI_STA);
+  WiFi.setAutoReconnect(false);          // no background retry loop
+  WiFi.begin(wifiSsid.c_str(), wifiPass.c_str());
+  Serial.print("connecting ");
+  uint32_t t0 = millis();
+  while (WiFi.status() != WL_CONNECTED && millis() - t0 < timeoutMs) { delay(300); Serial.print('.'); }
+  if (WiFi.status() != WL_CONNECTED) {
+    int st = WiFi.status();
+    radioOff();                          // stop retrying, keep the console readable
+    Serial.printf("\nfailed (status %d) - radio off\n", st);
+    Serial.println(F("  status 6 / 201 NO_AP_FOUND -> SSID wrong or out of range"));
+    Serial.println(F("  status 4 / 202 AUTH_FAIL   -> password wrong"));
+    Serial.println(F("  press W to re-enter. serial still works"));
+    return false;
+  }
+  Serial.printf("\nconnected  %s\n", WiFi.localIP().toString().c_str());
+  return true;
+}
+
+void startViewer() {
+  gpio_viewer.setSamplingInterval(75);
+  gpio_viewer.setSkipPeripheralPins(false);   // show I2C and shift-register pins too
+  gpio_viewer.begin();
+  Serial.printf("GPIO viewer  http://%s:8080\n", WiFi.localIP().toString().c_str());
+}
+
+void netStatus() {
+  Serial.println(F("\n--- network ---"));
+  Serial.printf("  SSID   [%s]\n", wifiSsid.c_str());
+  Serial.printf("  MAC    %s\n", WiFi.macAddress().c_str());
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.printf("  IP     %s\n", WiFi.localIP().toString().c_str());
+    Serial.printf("  RSSI   %d dBm\n", WiFi.RSSI());
+    Serial.printf("  viewer http://%s:8080\n", WiFi.localIP().toString().c_str());
+  } else {
+    Serial.println(F("  not connected"));
+  }
+}
+
 void menu() {
-  Serial.println(F("\n[t] self test  [k] knobs  [i] I2C scan  [u] ultrasonic  [r] PIR  [?] menu"));
+  Serial.println(F("\n[t] self test   [k] knobs        [i] scan I2C"
+                   "\n[u] ultrasonic  [r] PIR motion   [?] menu"
+                   "\n[W] set WiFi    [F] forget WiFi  [n] network status"));
 }
 
 void setup() {
@@ -204,13 +323,8 @@ void setup() {
   srInit(); segBlank();
   pinMode(WS2812, OUTPUT); pixelClear();
 
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
-  uint32_t t0 = millis();
-  Serial.printf("connecting to %s ", WIFI_SSID);
-  while (WiFi.status() != WL_CONNECTED && millis() - t0 < 12000) { delay(300); Serial.print('.'); }
-  Serial.println(WiFi.status() == WL_CONNECTED ? "\nconnected" : "\nno WiFi - serial only");
-  if (WiFi.status() == WL_CONNECTED) Serial.println(WiFi.localIP());
+  loadCreds();
+  if (connectWiFi(12000)) startViewer();
 
   selfTest();
   i2cScan();
@@ -219,13 +333,19 @@ void setup() {
 
 void loop() {
   if (!Serial.available()) { delay(20); return; }
-  switch (Serial.read()) {
-    case 't': selfTest(); break;
-    case 'k': knobs();    break;
-    case 'i': i2cScan();  break;
-    case 'u': usTest();   break;
-    case 'r': pirTest();  break;
-    case '?': menu();     break;
+  char c = Serial.read();
+  // Line-based terminals append CR/LF. Drop it, or the next prompt gets skipped.
+  while (Serial.available() && (Serial.peek() == '\n' || Serial.peek() == '\r')) Serial.read();
+  switch (c) {
+    case 't': selfTest();   break;
+    case 'k': knobs();      break;
+    case 'i': i2cScan();    break;
+    case 'u': usTest();     break;
+    case 'r': pirTest();    break;
+    case 'n': netStatus();  break;
+    case 'W': wifiSetup();  break;
+    case 'F': wifiForget(); break;
+    case '?': menu();       break;
     default: return;
   }
   menu();
