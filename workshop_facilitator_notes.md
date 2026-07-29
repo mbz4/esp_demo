@@ -26,10 +26,10 @@ Attach: `UT-Nutiplaat_R2_Schematics.PDF`
 ## Prep checklist
 
 - [ ] Flash all five boards with the probe firmware, set WiFi on each via `W`
-- [ ] Label boards 1–5, record MAC from `n` — **checks the duplicate-MAC question before it bites on day two**
+- [ ] Label boards 1–5, record MAC from `n`
 - [ ] Print the schematic, one copy per pair, sheets 1 and 2 at minimum
 - [ ] Test the terminal on one Windows and one Mac laptop
-- [ ] Spare USB-C cables — charge-only cables are the classic session killer
+- [x] Spare USB-C cables — charge-only cables are the classic session killer
 - [ ] Print the pair-assignment sheets (from the slides)
 - [ ] Confirm the room's wifi SSID matches what's stored on the boards
 
